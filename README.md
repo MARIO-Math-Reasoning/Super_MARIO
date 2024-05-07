@@ -10,11 +10,11 @@ This is the official repo for paper [AlphaMath Almost Zero: process Supervision 
 
 
 ## Value Estimation
-![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/Q_distribution.png)
+![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/Q_distribution.png =250x)
 
 
 ## Inference
-![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/infer_math.png)
+![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/infer_math.png =250x)
 
 
 | Inference Method       | Accuracy | avg. time (s) per question | avg. steps | 
