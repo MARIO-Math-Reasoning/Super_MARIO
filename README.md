@@ -10,11 +10,11 @@ This is the official repo for paper [AlphaMath Almost Zero: process Supervision 
 
 
 ## Value Estimation
-<img src="imgs/Q_distribution.png" width="250">
+<img src="imgs/Q_distribution.png" width="600">
 
 
 ## Inference
-<img src="imgs/infer_math.png" width="250">
+<img src="imgs/infer_math.png" width="600">
 
 
 | Inference Method       | Accuracy | avg. time (s) per question | avg. steps | 
