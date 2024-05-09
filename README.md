@@ -1,6 +1,6 @@
 # Super MARIO: process Supervision without process for MAth Reasoning with code Interpreter Output
 
-[🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B)
+[AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B)
 
 Code will be released soon. Stay tuned.
 
