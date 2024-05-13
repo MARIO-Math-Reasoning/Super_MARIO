@@ -104,7 +104,7 @@ class SBSREACT(REACT):
         self.candidate_nodes = sorted(self.candidate_nodes, key=lambda x: x.value, reverse=True)
         self.current_nodes = self.candidate_nodes[:self.current_top_num]
 
-        for current_node in self.current_nodes: 
+        for current_node in self.current_nodes[:]:  # must shallow copy because of the remove in the loop 
             if current_node.is_terminal and len(current_node.state["final_answer"]) > 0:  # by default, final_anwer = ""
                 self.final_answer_nodes.append(current_node)
                 self.current_nodes.remove(current_node)
