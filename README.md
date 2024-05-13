@@ -13,11 +13,11 @@ This is the official repo for paper [AlphaMath Almost Zero: process Supervision 
 pip install -r requirements.txt
 ```
 2. Install the [evaluation toolkit](https://github.com/MARIO-Math-Reasoning/MARIO_EVAL?tab=readme-ov-file#install-as-python-package) as a package.
-3. We modify the vllm to support value head.
-```
-cd vllm
-pip install .
-```
+3. Install our customized [vllm](https://github.com/MARIO-Math-Reasoning/vllm) to support value model.
+
+
+## Checkpoint transform
+You can use the `scripts/save_value_head` to add the value head to the LLM.
 
 
 ## Greedy Decoding
