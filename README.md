@@ -50,8 +50,11 @@ python solver_demo.py \
 
 
 ## Value Estimation
-Intermediate steps on training data
+value estimation for intermediate steps on training data
 <img src="imgs/Q_distribution.png" width="600">
+
+value estimation for intermediate steps and final steps on test data
+<img src="imgs/Q_distribution_test.png" width="600">
 
 
 ## Inference
