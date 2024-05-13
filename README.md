@@ -2,7 +2,7 @@
 
 [AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B)
 
-Code will be released soon. Stay tuned.
+MCTS Code will be released soon. Stay tuned.
 
 This is the official repo for paper [AlphaMath Almost Zero: process Supervision without process](https://arxiv.org/abs/2405.03553). Our approach involves training the policy and value models using only the mathematical reasoning derived from the Monte Carlo Tree Search (MCTS) framework, eliminating the need for GPT-4 or human annotations. 
 
@@ -17,7 +17,7 @@ pip install -r requirements.txt
 
 
 ## Checkpoint transform
-You can use the `scripts/save_value_head` to add the value head to the LLM.
+You can use the `scripts/save_value_head.py` to add the value head to the LLM.
 
 
 ## Greedy Decoding
@@ -50,6 +50,7 @@ python solver_demo.py \
 
 
 ## Value Estimation
+Intermediate steps on training data
 <img src="imgs/Q_distribution.png" width="600">
 
 
