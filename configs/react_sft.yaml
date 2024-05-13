@@ -1,0 +1,10 @@
+mode: "react"
+model_dir: "../AlphaMath-7B/" 
+temperature: 0 
+max_depth: 10
+prompt_wrap: "react_sft" 
+result_unwrap: "react_sft"
+step_delim: "\n"
+stop: ["\n</code>", "</code>", "</step>"]
+seed: 1234
+verbose: False

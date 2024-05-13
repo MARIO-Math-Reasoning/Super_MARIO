@@ -1,0 +1,13 @@
+mode: "react"
+model_dir: "../deepseek-math-valuehead-7b-base/"
+few_shot_path: "./mcts_math/few_shots/math.json"
+prompt_path: "./mcts_math/few_shots/prompt.json"
+create_local_llm: False  # if True, not for batch inference
+temperature: 0
+max_depth: 10
+prompt_wrap: "react"
+result_unwrap: "react"
+step_delim: "\n\n"
+stop: ["\nObservation:", "Observation:", "<Solution complete>"]
+seed: 1234
+verbose: True

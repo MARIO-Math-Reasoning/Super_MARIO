@@ -1,0 +1,15 @@
+mode: "sbs"
+model_dir: "../AlphaMath-7B/" 
+swap_space: 16
+temperature: 0
+max_depth: 10
+prompt_wrap: "react_sft" 
+result_unwrap: "react_sft"
+step_delim: "\n"
+stop: ["\n</code>", "</code>", "</step>"]
+seed: 1234
+need_value_func: False  # greedy decoding without value func
+n_generate_sample: 1
+best_of: 1
+step_beam_width: 1
+verbose: False
