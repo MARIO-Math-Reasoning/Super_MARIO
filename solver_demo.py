@@ -24,7 +24,7 @@ def parse_args():
         "--qaf", "--question-answer-file", 
         type=str, 
         required=True,
-        help="the file includes quesiton / partial solution (optional) / answer (optional)")
+        help="the file includes question / partial solution (optional) / answer (optional)")
 
     args = args.parse_args()
     return args
