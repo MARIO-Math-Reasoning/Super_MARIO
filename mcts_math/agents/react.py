@@ -111,7 +111,7 @@ class REACT(BaseTree):
         parser_result: Dict[str, str],
     ) -> None:
         self._update_current_node(step_result, parser_result)
-        self.current_node = new_node
+        self.current_node = self.current_node.children[0]
 
     def _update_current_node(
         self,

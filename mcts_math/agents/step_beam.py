@@ -17,8 +17,13 @@ from functools import partial
 from vllm.outputs import RequestOutput
 
 from mcts_math.nodes.base_node import BaseNode
-from mcts_math.constants import NO_VALID_CHILD, PARTIAL_SOL_COLOR, SOLUTION_COLOR, OBSERVATION_COLOR
-
+from mcts_math.constants import (
+    NO_VALID_CHILD, 
+    TOO_MANY_STEPS, 
+    TOO_MANY_CODE_ERRORS, 
+    SOLUTION_COLOR, 
+    OBSERVATION_COLOR,
+)
 from .tree import BaseTree, code_execution
 from .react import REACT
 
@@ -87,6 +92,14 @@ class SBSREACT(REACT):
             prompts.append(prompt)
         return prompts
 
+    @staticmethod
+    def is_valid_final_answer_node(node: Type[BaseNode]) -> bool:
+        # by default, final_anwer = ""
+        if node.is_terminal and node.state["final_answer"] and \
+           node.state["final_answer"] not in [NO_VALID_CHILD, TOO_MANY_STEPS, TOO_MANY_CODE_ERRORS]:
+            return True
+        return False
+
     def select_next_step(self, outputs: Optional[List[RequestOutput]] = None) -> None:
         """process output from vllm
         e.g.,
@@ -105,7 +118,7 @@ class SBSREACT(REACT):
         self.current_nodes = self.candidate_nodes[:self.current_top_num]
 
         for current_node in self.current_nodes[:]:  # must shallow copy because of the remove in the loop 
-            if current_node.is_terminal and len(current_node.state["final_answer"]) > 0:  # by default, final_anwer = ""
+            if self.__class__.is_valid_final_answer_node(current_node):
                 self.final_answer_nodes.append(current_node)
                 self.current_nodes.remove(current_node)
                 self.current_top_num -= 1
