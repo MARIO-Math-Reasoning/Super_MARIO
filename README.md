@@ -38,8 +38,8 @@ python solver_demo.py \
 ```
 
 
-## Step-level Beam Search
-In our machine, B1=1, B2=5 can achieve 62.12%.
+## Step-level Beam Search or MCTS
+In our machine, on MATH testset, the following cmd with config `B1=1, B2=5` can achieve ~62%, and the one with config `B1=3, B2=5` can reach ~65%.
 ```
 python solver_demo.py \
 --custom_cfg configs/sbs_sft.yaml \

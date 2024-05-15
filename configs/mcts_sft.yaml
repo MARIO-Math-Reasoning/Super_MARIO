@@ -9,7 +9,7 @@ step_delim: "\n"
 stop: ["\n</code>", "</code>", "</step>"]
 seed: 42
 need_value_func: True
-max_depth: 10
+max_depth: 8
 n_generate_sample: 5
 best_of: 5
 iterations: 40
