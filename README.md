@@ -59,9 +59,7 @@ value estimation for intermediate steps and final steps on test data
 <img src="imgs/Q_distribution_test.png" width="600">
 
 
-## Inference
-<img src="imgs/infer_math.png" width="600">
-
+## Inference on MATH dataset
 
 | Inference Method       | Accuracy | avg. time (s) per question | avg. steps | 
 | ---------------------- | -------- | -------------------------- | ---------- |
