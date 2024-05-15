@@ -65,10 +65,10 @@ value estimation for intermediate steps and final steps on test data
 
 | Inference Method       | Accuracy | avg. time (s) per question | avg. steps | 
 | ---------------------- | -------- | -------------------------- | ---------- |
-| Greedy                 | 53.48    | 1.6                        | 3.10       |
-| Step-level Beam (1,5)  | 59.78    | 3.1                        | 3.01       |
-| Step-level Beam (2,5)  | 62.48    | 2.4                        | 2.36       |
-| Step-level Beam (3,5)  | 63.54    | 2.3                        | 2.21       |
+| Greedy                 | 53.62    | 1.6                        | 3.10       |
+| Step-level Beam (1,5)  | 62.12    | 3.1                        | 3.01       |
+| Step-level Beam (2,5)  | 64.98    | 2.4                        | 2.36       |
+| Step-level Beam (3,5)  | 65.56    | 2.3                        | 2.21       |
 | MCTS                   | 63.72    | 20.3                       | 3.76       |
 
 
