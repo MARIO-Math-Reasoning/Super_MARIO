@@ -111,7 +111,7 @@ class SBSREACT(REACT):
         self.current_nodes = []
         if outputs is not None:
             for candidate_node, output in zip(self.candidate_nodes, outputs):
-                assert self.question in output.prompt
+                # assert self.question in output.prompt
                 candidate_node.value = output.value_estimate if output.value_estimate is not None else -100
             
         self.candidate_nodes = sorted(self.candidate_nodes, key=lambda x: x.value, reverse=True)
@@ -136,12 +136,15 @@ class SBSREACT(REACT):
         """
         self.candidate_nodes = []
         for current_node, output in zip(self.current_nodes, outputs):
-            assert self.question in output.prompt
+            # assert self.question in output.prompt
             # current_step.value = output.value
             # expand n_generate_sample nodes
             self.current_node = current_node
-            for idx, cur_output in enumerate(output.outputs):
-                step_result, parser_result = self.step_unwrap(cur_output.text.strip())
+            current_output_texts = [otp.text.strip() for otp in output.outputs]
+            if self.config.remove_duplicate:
+                current_output_texts = set(current_output_texts)
+            for idx, cur_output_text in enumerate(current_output_texts):
+                step_result, parser_result = self.step_unwrap(cur_output_text)
                 self._update_current_node(step_result, parser_result, idx)
             self.candidate_nodes.extend(current_node.children)
 

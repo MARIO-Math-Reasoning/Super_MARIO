@@ -1,0 +1,16 @@
+mode: "mcts"          
+model_dir: "../deepseek-math-valuehead-7b-base/"
+few_shot_path: "./mcts_math/few_shots/math.json"
+prompt_path: "./mcts_math/few_shots/prompt.json" 
+swap_space: 16
+temperature: 0.6
+errors_threshold: 3   # most allowed consecutive python errors
+prompt_wrap: "react"
+result_unwrap: "react"
+step_delim: "\n\n"
+stop: ["\nObservation:", "Observation:", "<Solution complete>"]
+max_depth: 8
+n_generate_sample: 5 
+seed: 42
+is_sampling: True
+verbose: False

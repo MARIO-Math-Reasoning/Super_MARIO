@@ -20,21 +20,21 @@ class MCTSNode(BaseNode):
     __visit_count: int = PrivateAttr(default=0)
     __value_sum: float = PrivateAttr(default=0)
 
-    # @property
     def visit_value(self) -> float:
         if self.__visit_count == 0:
             return 0
         return self.__value_sum / self.__visit_count
 
-    # @property
     def visit_count(self) -> int:
         return self.__visit_count
 
-    # @visit_count.setter
     def update_visit_count(self, count: int) -> None:
         self.__visit_count = count
 
     def update(self, value: float) -> None:
+        # init value
+        if self.value == -100:
+            self.value = value
         self.__visit_count += 1
         self.__value_sum += value
 

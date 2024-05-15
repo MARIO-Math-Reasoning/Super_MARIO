@@ -2,11 +2,11 @@
 
 - [x] Greedy
 - [x] Step Beam
-- [ ] MCTS (soon)
+- [x] MCTS
 
 Download checkpoint [AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B)
 
-This is the official repo for paper [AlphaMath Almost Zero: process Supervision without process](https://arxiv.org/abs/2405.03553). Our approach involves training the policy and value models using only the mathematical reasoning derived from the Monte Carlo Tree Search (MCTS) framework, eliminating the need for GPT-4 or human annotations. 
+This is the official repository for paper [AlphaMath Almost Zero: process Supervision without process](https://arxiv.org/abs/2405.03553). It is extracted from our internal corporate codebase. As a result, there may be slight differences when reproducing the numbers reported in our paper, but they should be very close. Our approach involves training the policy and value models using only the mathematical reasoning derived from the Monte Carlo Tree Search (MCTS) framework, eliminating the need for GPT-4 or human annotations. 
 
 
 ## Installation
@@ -18,7 +18,7 @@ pip install -r requirements.txt
 3. Install our customized [vllm](https://github.com/MARIO-Math-Reasoning/vllm) to support value model.
 
 
-## Checkpoint transform
+## Checkpoint transformation
 You can use the `scripts/save_value_head.py` to add the value head to the LLM.
 
 

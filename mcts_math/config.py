@@ -141,21 +141,24 @@ class BaseConfig:
     errors_threshold: int = field(
         default=0, metadata={"help": "maximum code errors allowed, ie., if errors_count > errors_threshold, the tree growth from this node should be terminated."}
     )
+    need_value_func: bool = field(
+        default=False, metadata={"help": "whether to use value head in decoding"}
+    )
+    update_leaf_value: bool = field(
+        default=False, metadata={"help": "update leaf value in mcts"}
+    )
+    c_puct: float = field(
+        default=1.5, metadata={"help": "weight of c_puct in mcts"}
+    )
+    is_sampling: bool = field(
+        default=False, metadata={"help": "solution generation in mcts for training data with ground truth"}
+    )
+    remove_duplicate: bool = field(
+        default=False, metadata={"help": "remove duplicate children nodes in step beam or mcts"}
+    )
     # other args
-    log_folder: str = field(
-        default="logs", metadata={"help": "folder to save logs"}
-    )
-    log_file: str = field(
-        default="tmp.log", metadata={"help": "log file"}
-    )
-    log_id: str = field(
-        default="", metadata={"help": "log file"}
-    )
     batch_size: int = field(
         default=-1, metadata={"help": "batch size for batch inference"}
-    )
-    need_value_func: bool = field(
-        default=False, metadata={"help": "print intermediate steps on screen"}
     )
     verbose: bool = field(
         default=False, metadata={"help": "print intermediate steps on screen"}

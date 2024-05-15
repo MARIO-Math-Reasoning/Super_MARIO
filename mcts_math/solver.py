@@ -60,6 +60,7 @@ class Solver(BaseModel):
             self.max_solver_steps = self.config.max_depth
         elif self.config.mode == "mcts":
             self.max_solver_steps = self.config.iterations
+            self.config.step_beam_width = 1
 
     @field_validator("config")
     def validate_config(cls, cfg: Any):

@@ -16,9 +16,8 @@ from vllm import LLM, SamplingParams
 from mcts_math.llms.local_llms import local_vllm
 from mcts_math.nodes.base_node import BaseNode
 from mcts_math.constants import (
-    NO_VALID_CHILD, 
-    PARTIAL_SOL_COLOR, 
-    SOLUTION_COLOR, 
+    NO_VALID_CHILD,
+    SOLUTION_COLOR,
     OBSERVATION_COLOR,
     WARNING_COLOR,
 )
@@ -107,7 +106,7 @@ class REACT(BaseTree):
 
     def update_current_node(
         self, 
-        step_result: str, 
+        step_result: str,
         parser_result: Dict[str, str],
     ) -> None:
         self._update_current_node(step_result, parser_result)
