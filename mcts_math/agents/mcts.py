@@ -182,6 +182,7 @@ class MCTS(SBSREACT):
             # backup
             node.update_recursive(self.config.positive_reward if correct else self.config.negative_reward, self.root)
         else:
+            # for testset, no ground_truth, put this node in candidate_nodes, then it will be evaluated by value model and backup in select_next_step().
             self.candidate_nodes.append(node)
 
     def select_next_step(self, outputs: Optional[List[RequestOutput]] = None) -> None:
@@ -233,6 +234,7 @@ class MCTS(SBSREACT):
 
             # backup
             if self.config.update_leaf_value:
+                # child node will be put into candidate_nodes, then all candidate_nodes will be evaluated by value model and backup in select_next_step().
                 for value_node in current_node.children:
                     if value_node not in self.candidate_nodes:
                         self.candidate_nodes.append(value_node)
@@ -245,7 +247,8 @@ class MCTS(SBSREACT):
         while candidates:
             node = candidates.pop(0)
             states[node.tag] = node.state
-            states[node.tag]["value"] = node.visit_value()
+            states[node.tag]["value"] = node.value
+            states[node.tag]["q_value"] = node.visit_value()
             states[node.tag]["prior"] = node.prior
             states[node.tag]["visit_count"] = node.visit_count()
             if node.has_children():
