@@ -84,10 +84,10 @@ Note: this script can also be run with saved tree by step-level beam search, and
 
 
 ## Value Estimation
-value estimation for intermediate steps on training data
+Converged Q-Value for intermediate steps on training data
 <img src="imgs/Q_distribution.png" width="600">
 
-value estimation for intermediate steps and final steps on test data
+Value prediction by value model on test data
 <img src="imgs/Q_distribution_test.png" width="600">
 
 
