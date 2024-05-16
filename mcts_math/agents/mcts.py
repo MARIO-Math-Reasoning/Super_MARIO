@@ -250,5 +250,4 @@ class MCTS(SBSREACT):
             states[node.tag]["visit_count"] = node.visit_count()
             if node.has_children():
                 candidates.extend(node.children)
-        states["solutions"] = self.get_steps()
         return states
