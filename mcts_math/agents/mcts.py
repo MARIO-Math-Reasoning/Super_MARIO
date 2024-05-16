@@ -107,7 +107,15 @@ class MCTS(SBSREACT):
         node.update_recursive(value_estimate, self.root)
 
     def expand_node(self, outputs: List[CompletionOutput], node: Type[MCTSNode]) -> None:
-        outputs = list(set(outputs))
+        if self.config.remove_duplicate:
+            dedup_outputs = []
+            dedup_keys = set()
+            for output in outputs:
+                key = output.text.strip()
+                if not key in dedup_keys:
+                    dedup_keys.add(key)
+                    dedup_outputs.append(output)
+            outputs = dedup_outputs
         for idx, output in enumerate(outputs):
             # for simplicity, the prior prob did not consider the observation by python interpreter is not included
             prior_prob = np.exp(output.cumulative_logprob / len(output.token_ids))
@@ -236,7 +244,7 @@ class MCTS(SBSREACT):
             if self.config.update_leaf_value:
                 # child node will be put into candidate_nodes, then all candidate_nodes will be evaluated by value model and backup in select_next_step().
                 for value_node in current_node.children:
-                    if value_node not in self.candidate_nodes:
+                    if value_node not in self.candidate_nodes and value_node.visit_count() < 1:
                         self.candidate_nodes.append(value_node)
             else:
                 current_node.update_recursive(value_estimate, self.root)
