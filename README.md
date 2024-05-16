@@ -1,8 +1,8 @@
 # Super MARIO: process Supervision without process for MAth Reasoning with code Interpreter Output
 
-- [x] Greedy
-- [x] Step Beam
-- [x] MCTS
+- [x] [Greedy](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#greedy-decoding)
+- [x] [Step Beam](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#step-level-beam-search)
+- [x] [MCTS](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#mcts)
 
 Download checkpoint [AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B)
 
