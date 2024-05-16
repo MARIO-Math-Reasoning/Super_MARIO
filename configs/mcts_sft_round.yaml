@@ -1,0 +1,17 @@
+mode: "mcts"          
+model_dir: "../AlphaMath-7B/" 
+swap_space: 16
+temperature: 1.0  
+errors_threshold: 3   # most allowed consecutive python errors
+prompt_wrap: "react_sft" 
+result_unwrap: "react_sft"
+step_delim: "\n"
+stop: ["\n</code>", "</code>", "</step>"]
+seed: 42
+need_value_func: True
+max_depth: 8
+n_generate_sample: 5
+best_of: 5
+iterations: 40
+is_sampling: True
+verbose: False

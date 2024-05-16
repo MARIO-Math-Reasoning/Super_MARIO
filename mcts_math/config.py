@@ -54,6 +54,15 @@ _PROMPT_CHOICES = [
 PROMPT_CHOICES = ChoiceEnum(_PROMPT_CHOICES)
 
 
+_MCTS_INFER_CHOICES = [
+    "value",
+    "puct",
+    "q_value",
+    "visit_count",
+]
+
+MCTS_INFER_CHOICES = ChoiceEnum(_MCTS_INFER_CHOICES)
+
 @dataclass
 class BaseConfig:
 
@@ -151,10 +160,17 @@ class BaseConfig:
         default=1.5, metadata={"help": "weight of c_puct in mcts"}
     )
     is_sampling: bool = field(
-        default=False, metadata={"help": "solution generation in mcts for training data with ground truth"}
+        default=False, metadata={"help": "solution generation in mcts"}
     )
     remove_duplicate: bool = field(
         default=False, metadata={"help": "remove duplicate children nodes in step beam or mcts"}
+    )
+    # offline inferene args 
+    prune: bool = field(
+        default=False, metadata={"help": "prune the tree in a complete mcts tree"}
+    )
+    mcts_infer_strategy: MCTS_INFER_CHOICES = field(
+        default="q_value", metadata={"help": "the strategy to select node in a complete mcts tree"}
     )
     # other args
     batch_size: int = field(

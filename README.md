@@ -38,13 +38,45 @@ python solver_demo.py \
 ```
 
 
-## Step-level Beam Search or MCTS
+## Step-level Beam Search
 In our machine, on MATH testset, the following cmd with config `B1=1, B2=5` can achieve ~62%, and the one with config `B1=3, B2=5` can reach ~65%.
 ```
 python solver_demo.py \
 --custom_cfg configs/sbs_sft.yaml \
 --qaf ../MARIO_EVAL/data/math_testset_annotation.json
 ```
+
+
+## MCTS
+1. Training data generation. `ground_truth` must be provided in `qaf` file.
+
+round 1
+```
+python solver_demo.py \
+--custom_cfg configs/mcts_round1.yaml \
+--qaf ../MARIO_EVAL/data/math_testset_annotation.json
+```
+
+round > 1, after SFT
+```
+python solver_demo.py \
+--custom_cfg configs/mcts_sft_round.yaml \
+--qaf ../MARIO_EVAL/data/math_testset_annotation.json
+```
+
+2. Inference. In this case, `ground_truth` won't be used.
+```
+python solver_demo.py \
+--custom_cfg configs/mcts_sft.yaml \
+--qaf ../MARIO_EVAL/data/math_testset_annotation.json
+```
+Different from step-level beam search, you need first to build a complete tree, then you should run the MCTS offline.
+```
+python offline_inference.py \
+--custom_cfg configs/offline_inference.yaml \
+--tree_jsonl <the saved tree jsonl file>
+```
+Note: this script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
 
 
 ## Training Data Generation from MCTS
@@ -67,7 +99,7 @@ value estimation for intermediate steps and final steps on test data
 | Step-level Beam (1,5)  | 62.12    | 3.1                        | 3.01       |
 | Step-level Beam (2,5)  | 64.98    | 2.4                        | 2.36       |
 | Step-level Beam (3,5)  | 65.56    | 2.3                        | 2.21       |
-| MCTS                   | 63.72    | 20.3                       | 3.76       |
+| MCTS (1, 5)            | 63.72    | 20.3                       | 3.76       |
 
 
 ## Citation

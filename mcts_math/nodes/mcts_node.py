@@ -20,7 +20,7 @@ class MCTSNode(BaseNode):
     __visit_count: int = PrivateAttr(default=0)
     __value_sum: float = PrivateAttr(default=0)
 
-    def visit_value(self) -> float:
+    def q_value(self) -> float:
         if self.__visit_count == 0:
             return 0
         return self.__value_sum / self.__visit_count
@@ -45,7 +45,7 @@ class MCTSNode(BaseNode):
         self.parent.update_recursive(value, start_node)
 
     def puct(self) -> float:
-        q_value = self.visit_value() if self.visit_count() > 0 else 0
+        q_value = self.q_value() if self.visit_count() > 0 else 0
         u_value = self.c_puct * self.prior * np.sqrt(self.parent.visit_count()) / (1 + self.visit_count())
         return q_value + u_value
         

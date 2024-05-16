@@ -117,7 +117,6 @@ class MCTS(SBSREACT):
                     dedup_outputs.append(output)
             outputs = dedup_outputs
         for idx, output in enumerate(outputs):
-            # for simplicity, the prior prob did not consider the observation by python interpreter is not included
             prior_prob = np.exp(output.cumulative_logprob / len(output.token_ids))
             step_result, parser_result = self.step_unwrap(output.text.strip())
             self.create_child(step_result, parser_result, node, prior_prob, idx)
@@ -256,7 +255,7 @@ class MCTS(SBSREACT):
             node = candidates.pop(0)
             states[node.tag] = node.state
             states[node.tag]["value"] = node.value
-            states[node.tag]["q_value"] = node.visit_value()
+            states[node.tag]["q_value"] = node.q_value()
             states[node.tag]["prior"] = node.prior
             states[node.tag]["visit_count"] = node.visit_count()
             if node.has_children():
