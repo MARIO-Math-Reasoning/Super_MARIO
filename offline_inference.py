@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import numpy as np
 
 from typing import Any, Dict, Type, Optional, List
 from pydantic import BaseModel
