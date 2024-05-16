@@ -18,8 +18,9 @@ pip install -r requirements.txt
 3. Install our customized [vllm](https://github.com/MARIO-Math-Reasoning/vllm) to support value model.
 
 
-## Checkpoint transformation
-You can use the `scripts/save_value_head.py` to add the value head to the LLM.
+## Checkpoint Initialization
+1. Download the [deepseek-math-7b-base](https://huggingface.co/deepseek-ai/deepseek-math-7b-base).
+2. You can use the `scripts/save_value_head.py` to add the value head to the LLM.
 
 
 ## Greedy Decoding
