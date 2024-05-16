@@ -45,7 +45,7 @@ class InferNode(BaseModel):
     prune: bool = False
 
     def puct(self) -> float:
-        q_value = self.visit_value if self.visit_count > 0 else 0
+        q_value = self.q_value if self.visit_count > 0 else 0
         u_value = self.c_puct * self.prior * np.sqrt(self.parent.visit_count) / (1 + self.visit_count)
         return q_value + u_value
 
