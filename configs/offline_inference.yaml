@@ -1,7 +1,7 @@
 mode: "mcts"          
 model_dir: "../AlphaMath-7B/" 
 n_generate_sample: 5
-step_beam_width: 3
-prune: False
+step_beam_width: 1
+prune: True
 mcts_infer_strategy: "q_value"  # mcts uses q_value, step_beam uses value
 c_puct: 1.25
