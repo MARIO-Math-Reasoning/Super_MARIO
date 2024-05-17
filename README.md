@@ -100,7 +100,7 @@ Value prediction by value model on test data
 | Step-level Beam (1,5)  | 62.12    | 3.1                        | 3.01       |
 | Step-level Beam (2,5)  | 64.98    | 2.4                        | 2.36       |
 | Step-level Beam (3,5)  | 65.56    | 2.3                        | 2.21       |
-| MCTS (1, 5)            | 63.72    | 20.3                       | 3.76       |
+| MCTS (N=40)            | 63.72    | 10.1                       | 3.76       |
 
 
 ## Citation
