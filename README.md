@@ -85,11 +85,14 @@ Note: this script can also be run with saved tree by step-level beam search, and
 
 
 ## Value Estimation
-Converged Q-Value for intermediate steps on training data
-<img src="imgs/Q_distribution.png" width="600">
+Distribution of Q-value for intermediate steps on training data. Because ground truth is known for training data, the Q-value can converge very well.
+<img src="imgs/Q_distribution.png" width="500">
 
-Value prediction by value model on test data
-<img src="imgs/Q_distribution_test.png" width="600">
+Distribution of Q-value for both intermediate and final steps on test data. On test set, the ground truth is unknown, so the Q-value distribution includes both intermediate and final steps. From this figure, we can find
+1. When model prediction is correct, its Q-value also converges towards 1.
+2. When model prediction is incorrect, the distribution of Q-value covers all [-1,1], because the intermediate steps may be correct.
+3. When model prediction is incorrect,  but it is still model's prediction, so the model believes it should be correct, so the value evaluation or converged Q-value sometimes towards 1.
+<img src="imgs/Q_distribution_test.png" width="500">
 
 
 ## Inference on MATH dataset
