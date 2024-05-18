@@ -75,7 +75,7 @@ Different from step-level beam search, you need first to build a complete tree, 
 ```
 python offline_inference.py \
 --custom_cfg configs/offline_inference.yaml \
---tree_jsonl <the saved tree jsonl file>
+--tree_jsonl <the saved tree jsonl file by solver_demo.py>
 ```
 Note: this script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
 
