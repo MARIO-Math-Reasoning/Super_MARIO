@@ -49,10 +49,15 @@ python solver_demo.py \
 
 
 ## MCTS
-1. Training data generation. `ground_truth` must be provided in `qaf` file.
+### Training data generation. 
+
+![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/mcts.png)
+
+The `ground_truth` (the final answer, not the solution process) must be provided in `qaf` file.
 
 round 1
 ```
+# Checkpoint Initialization is required by adding value head
 python solver_demo.py \
 --custom_cfg configs/mcts_round1.yaml \
 --qaf ../MARIO_EVAL/data/math_testset_annotation.json
@@ -65,7 +70,9 @@ python solver_demo.py \
 --qaf ../MARIO_EVAL/data/math_testset_annotation.json
 ```
 
-2. Inference. In this case, `ground_truth` won't be used.
+### Inference. 
+
+Only `question` will be used, but the `ground_truth` will be used for calculating the accuracy..
 ```
 python solver_demo.py \
 --custom_cfg configs/mcts_sft.yaml \
@@ -79,9 +86,6 @@ python offline_inference.py \
 ```
 Note: this script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
 
-
-## Training Data Generation from MCTS
-![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/mcts.png)
 
 
 ## Value Estimation
