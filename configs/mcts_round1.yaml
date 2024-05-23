@@ -11,6 +11,7 @@ step_delim: "\n\n"
 stop: ["\nObservation:", "Observation:", "<Solution complete>"]
 max_depth: 8
 n_generate_sample: 5 
+iterations: 40
 seed: 42
 is_sampling: True
 verbose: False
