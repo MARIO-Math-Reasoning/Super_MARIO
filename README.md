@@ -22,6 +22,8 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 | &nbsp;&nbsp; + Maj@5   | 66.54    | &nbsp;&nbsp; x1     | &nbsp;&nbsp; x1  | 5|
 | MCTS (N=40)            | 64.02    | 10.1                | 3.8        | 1      |
 
+1. In Step-level Beam (1,5), it will only return the top-1 solution. So `+ Maj@5` requires to run 5 times, which encourage diversity. 
+2. In Step-level Beam (5,5), it will return top-5 solutions. So `+ Maj@5` directly uses the 5 candidates, which lack of diversity.
 
 ## Installation
 1. Install `requirements.txt`
