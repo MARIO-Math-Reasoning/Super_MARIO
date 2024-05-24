@@ -25,6 +25,16 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 1. In Step-level Beam (1,5), it will only return the top-1 solution. So `+ Maj@5` requires to run 5 times, which encourage diversity. 
 2. In Step-level Beam (5,5), it will return top-5 solutions. So `+ Maj@5` directly uses the 5 candidates, which lack of diversity.
 
+| temperature            | 0.6      | 1.0     | 
+| ---------------------- |:--------:|:-------:|
+| Step-level Beam (1,5)  | 62.32    | 62.76   |
+| Step-level Beam (2,5)  | 64.66    | 65.60   |
+| Step-level Beam (3,5)  | 65.74    | 66.28   |
+| Step-level Beam (5,5)  | 65.98    | 66.38   |
+
+For step-level beam search, setting `temperature=1.0` may achieve slightly better results.
+
+
 ## Installation
 1. Install `requirements.txt`
 ```
