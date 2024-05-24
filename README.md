@@ -62,12 +62,16 @@ python solver_demo.py \
 --custom_cfg configs/sbs_sft.yaml \
 --qaf ../MARIO_EVAL/data/math_testset_annotation.json
 ```
-
+Calculate the accuracy
+```
+python eval_output_jsonl.py \
+--res_file <the saved tree jsonl file by solver_demo.py>
+```
 
 ## MCTS
 ### Training data generation. 
 
-![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/mcts.png)
+<img src="imgs/mcts.png">
 
 The `ground_truth` (the final answer, not the solution process) must be provided in `qaf` json or jsonl file (example format can refer to `../MARIO_EVAL/data/math_testset_annotation.json`).
 
@@ -88,19 +92,19 @@ python solver_demo.py \
 
 ### Inference. 
 
-Only `question` will be used, but the `ground_truth` will be used for calculating the accuracy..
+Only `question` will be used for solution generation, but the `ground_truth` will be used for calculating the accuracy.
 ```
 python solver_demo.py \
 --custom_cfg configs/mcts_sft.yaml \
 --qaf ../MARIO_EVAL/data/math_testset_annotation.json
 ```
-Different from step-level beam search, you need first to build a complete tree, then you should run the MCTS offline.
+Different from step-level beam search, you need first to build a complete tree, then you should run the MCTS offline then calculate the accuracy.
 ```
 python offline_inference.py \
 --custom_cfg configs/offline_inference.yaml \
 --tree_jsonl <the saved tree jsonl file by solver_demo.py>
 ```
-Note: this script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
+Note: this evaluation script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
 
 
 ## Value Estimation
