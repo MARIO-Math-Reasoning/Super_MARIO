@@ -69,21 +69,21 @@ python solver_demo.py \
 
 ![](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/imgs/mcts.png)
 
-The `ground_truth` (the final answer, not the solution process) must be provided in `qaf` file.
+The `ground_truth` (the final answer, not the solution process) must be provided in `qaf` json or jsonl file (example format can refer to `../MARIO_EVAL/data/math_testset_annotation.json`).
 
 round 1
 ```
 # Checkpoint Initialization is required by adding value head
 python solver_demo.py \
 --custom_cfg configs/mcts_round1.yaml \
---qaf ../MARIO_EVAL/data/math_testset_annotation.json
+--qaf /path/to/training/data
 ```
 
 round > 1, after SFT
 ```
 python solver_demo.py \
 --custom_cfg configs/mcts_sft_round.yaml \
---qaf ../MARIO_EVAL/data/math_testset_annotation.json
+--qaf /path/to/training/data
 ```
 
 ### Inference. 
@@ -101,7 +101,6 @@ python offline_inference.py \
 --tree_jsonl <the saved tree jsonl file by solver_demo.py>
 ```
 Note: this script can also be run with saved tree by step-level beam search, and the accuracy should remain the same.
-
 
 
 ## Value Estimation
