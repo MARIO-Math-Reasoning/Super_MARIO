@@ -14,13 +14,14 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 | ---------------------- |:--------:|:-------------------:|:----------:|:------:|
 | Greedy                 | 53.62    | 1.6                 | 3.1        | 1      |
 | Maj@5                  | 61.84    | 2.9                 | 2.9        | 5      |  
-| Step-level Beam (1,5)  | 62.32    | 3.1                 | 3.0        | 1      |
-| &nbsp;&nbsp; + Maj@5   | 67.04    | &nbsp;&nbsp; x5     | &nbsp;&nbsp; x1  | 5|
-| Step-level Beam (2,5)  | 64.66    | 2.4                 | 2.4        | 1      |
-| Step-level Beam (3,5)  | 65.74    | 2.3                 | 2.2        | 1      |
-| Step-level Beam (5,5)  | 65.98    | 4.7                 | 2.3        | 1      |
-| &nbsp;&nbsp; + Maj@5   | 66.54    | &nbsp;&nbsp; x1     | &nbsp;&nbsp; x1  | 5|
-| MCTS (N=40)            | 64.02    | 10.1                | 3.8        | 1      |
+| Step-level Beam (1,5)  | 62.32    | 3.1                 | 3.0        | top-1      |
+| &nbsp;&nbsp; 5 runs + Maj@5   | 67.04    | &nbsp;&nbsp; x5    | &nbsp;&nbsp; x1  | 5 top-1|
+| Step-level Beam (2,5)  | 64.66    | 2.4                 | 2.4        | top-1      |
+| Step-level Beam (3,5)  | 65.74    | 2.3                 | 2.2        | top-1      |
+| Step-level Beam (5,5)  | 65.98    | 4.7                 | 2.3        | top-1      |
+| &nbsp;&nbsp; 1 run + Maj@5   | 66.54    | &nbsp;&nbsp; x1     | &nbsp;&nbsp; x1  | top-5|
+| &nbsp;&nbsp; 5 runs + Maj@5  | 69.94    | &nbsp;&nbsp; x5     | &nbsp;&nbsp; x1  | 5 top-1|
+| MCTS (N=40)            | 64.02    | 10.1                | 3.8        | top-1      |
 
 1. In Step-level Beam (1,5), it will only return the top-1 solution. So `+ Maj@5` requires to run 5 times, which encourage diversity. 
 2. In Step-level Beam (5,5), it will return top-5 solutions. So `+ Maj@5` directly uses the 5 candidates, which lack of diversity.
