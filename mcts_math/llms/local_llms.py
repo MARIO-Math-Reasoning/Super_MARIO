@@ -13,11 +13,10 @@ def local_vllm(
     sampling_params: SamplingParams,
     n: int,
     temperature: float,
+    with_value: bool = False,
 ) -> List[str]:  
     """
     This one is not for batch inference.
-
-    Don't use this function for value
     """
     # update args
     sampling_params.n = n
@@ -28,7 +27,10 @@ def local_vllm(
     # len(prompts) = 1,  we take the first one RequestOutput. 
     output = outputs[0]
     completion_outputs = output.outputs                                 # return List[CompletionOutput], where len() = sampling_params.n
-    return [co.text for co in completion_outputs]
+    if with_value:
+        return completion_outputs, output.value_estimate  # for sbs, mcts
+    else:
+        return [co.text for co in completion_outputs]
 
 
 def server_generator(
