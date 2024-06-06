@@ -7,6 +7,10 @@ from __future__ import annotations
 import os
 import copy
 
+import random
+import torch
+import numpy as np
+
 from termcolor import colored
 from functools import partial
 from typing import Optional, Any, Dict, List, Callable, Type, Tuple
@@ -26,6 +30,19 @@ from .agents.tree import BaseTree
 from .llms.local_llms import local_generator, server_generator
 from .llms.local_llm_engine import llm_engine
 from .constants import TIMEOUT_SECONDS, ERROR_COLOR
+
+
+def set_seed(seed: int = 1024) -> None:
+    np.random.seed(seed)
+    random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    # When running on the CuDNN backend, two further options must be set
+    torch.backends.cudnn.deterministic = True
+    torch.backends.cudnn.benchmark = False
+    # Set a fixed value for the hash seed
+    os.environ["PYTHONHASHSEED"] = str(seed)
+    # logger.info(f"Random seed set as {seed}")
 
 
 class Solver(BaseModel):
@@ -70,6 +87,8 @@ class Solver(BaseModel):
         raise TypeError("Wrong type for `config`, must be subclass of BaseConfig")
 
     def create_llm(self) -> Callable[[...], List[str]]:
+        if self.config.seed:
+            set_seed(self.config.seed)
         engine, sampling_params = llm_engine(self.config)
         self.engine = engine
         self.generate_sampling_params = sampling_params
