@@ -95,6 +95,10 @@ class MCTS(SBSREACT):
         return random.choice(best_childs) if best_childs else None
 
     def expansion_evaluation_backpropagation(self, node: Type[MCTSNode]) -> None:
+        """
+        This function is only used for single example inference, required to set `create_local_llm` as True.
+        """
+        assert self.config.create_local_llm, "llm must be created within MCTS class."
         prompt = self.create_prompt()
         # expand and evaluate
         outputs, value_estimate = self.llm(prompt, n=self.n_generate_sample, stop=self.stop)
