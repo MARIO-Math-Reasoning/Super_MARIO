@@ -9,7 +9,7 @@ from mcts_math.agents.utils import math_is_equiv
 def parse_args():
     args = argparse.ArgumentParser()
     args.add_argument('--res_file', type=str, required=True, help="result file in jsonl.")
-    args.add_argument('--rect', action="store_true", help="if using react_batch_demo.py, set True.")
+    args.add_argument('--react', action="store_true", help="if using react_batch_demo.py, set True.")
 
     args = args.parse_args()
     return args
