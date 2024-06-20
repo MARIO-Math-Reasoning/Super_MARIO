@@ -6,7 +6,7 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 - [x] [Step Beam](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#step-level-beam-search)
 - [x] [MCTS](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#mcts)
 
-Download training data and checkpoint of round 3 [AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B) and [AlphaMath-Round3-Trainset](https://huggingface.co/datasets/MARIO-Math-Reasoning/AlphaMath-Trainset). The solution process of the training data is automatically generated based on MCTS and checkpoint in round 3. Both positive and negative examples are included for training the policy and value models.
+Download checkpoint and training data of round 3 [AlphaMath-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B) / [AlphaMath-7B 🤖](https://www.modelscope.cn/models/iic/AlphaMath-7B), and [AlphaMath-Round3-Trainset 🤗](https://huggingface.co/datasets/MARIO-Math-Reasoning/AlphaMath-Trainset). The solution process of the training data is automatically generated based on MCTS and checkpoint in round 2. Both positive and negative examples are included for training the policy and value models.
 
 ## Inference on MATH dataset
 
