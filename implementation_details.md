@@ -37,8 +37,6 @@ def preprocess_value_dataset(
         response_state = multistep_response[-1]['Q']  # last Q
         for sub_response in multistep_response:
             if len(sub_response['step']) == 0:
-                import pdb
-                pdb.set_trace()
                 print(sub_response['step'])
             sub_message = [{"role": 'user', 'content': ""}] + [{"role": 'assistant', 'content': sub_response['step'].strip() + "\n"}]
             sub_Q = float(sub_response['Q'])
@@ -130,7 +128,6 @@ class VMDataCollatorForSeq2Seq(DataCollatorForSeq2Seq):
                     remainder = [IGNORE_INDEX] * (max_label_length - len(feature["Q"]))  # Assuming IGNORE_INDEX as padding value for Q
                     
                     if isinstance(feature["Q"], list):
-                        # print('list')
                         feature["Q"] = (
                             feature["Q"] + remainder if padding_side == "right" else remainder + feature["Q"]
                         )
@@ -197,27 +194,13 @@ def compute_loss(
             shift_labels = shift_labels.to(shift_logits.device)
             loss = loss_fct(shift_logits, shift_labels)
 
-        if torch.isnan(loss) or loss is None:
-            print(inputs)
-            if torch.isnan(lm_logits).any():
-                print("logits has NAN")
-            else:
-                print("logits no NAN")
-            print("logits", lm_logits)
-            print('loss', loss.item())
-            print('loss', loss)
-            assert False
+        assert not torch.isnan(loss) and Q is not None
 
-        if Q is not None:
-            Q = Q.type_as(values)
-            masked_values = torch.where(mask, values, Q)
-            value_loss = F.mse_loss(masked_values, Q, reduction='sum') / (mask.sum() + 1e-3)
-            all_losses = loss + self.weight_alpha * value_loss
+        Q = Q.type_as(values)
+        masked_values = torch.where(mask, values, Q)
+        value_loss = F.mse_loss(masked_values, Q, reduction='sum') / (mask.sum() + 1e-3)
+        all_losses = loss + self.weight_alpha * value_loss
 
-        else:
-            assert False
-            all_losses = None
-            value_loss = None
 
         if return_outputs:
             return all_losses, [all_losses, loss, value_loss, masked_values, Q]
