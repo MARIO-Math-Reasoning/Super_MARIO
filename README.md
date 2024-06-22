@@ -10,7 +10,7 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 
 **Dataset**: [AlphaMath-Round3-Trainset 🤗](https://huggingface.co/datasets/MARIO-Math-Reasoning/AlphaMath-Trainset) The solution process of the training data is automatically generated based on MCTS and checkpoint in round 2. Both positive and negative examples are included for training the policy and value models.
 
-**Training Code**: Due to policy, we can open release key functions for training in [implementation details](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/implementation_details.md).
+**Training Code**: Due to policy, we can only release the [implementation details](https://github.com/MARIO-Math-Reasoning/Super_MARIO/blob/main/implementation_details.md) of some key functions, which should basically be modified in your own training code.
 
 ## Inference on MATH dataset
 
