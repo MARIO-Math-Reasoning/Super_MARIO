@@ -142,7 +142,7 @@ On test set, the ground truth is unknown, so the Q-value distribution includes b
 
 
 ## Citation
-SVPO version
+SVPO by MCTS
 ```
 @article{chen2024step,
   title={Step-level Value Preference Optimization for Mathematical Reasoning},

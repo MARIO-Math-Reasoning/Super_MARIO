@@ -1,8 +1,8 @@
 # The key implementation details based on [Llama_Factory v0.6.1](https://github.com/hiyouga/LLaMA-Factory/tree/v0.6.1).
 
 ## dataprocess
-* We construct the corresponding Q-values for each steps
-* Q is the same length as input_ids, and any position that is not the end of a step is marked with IGNORE_INDEX (typically -100).
+* We construct the corresponding `Q`-values for each steps
+* `Q` is the same length as `input_ids`, and any position that is not the end of a step is marked with `IGNORE_INDEX` (typically -100).
 ```python
 def preprocess_value_dataset(
     examples: Dict[str, List[Any]],
@@ -81,7 +81,7 @@ def preprocess_value_dataset(
 
 
 ## DataCollator
-* We inherit DataCollatorForSeq2Seq to organize Q into batches.
+* We inherit `DataCollatorForSeq2Seq` to organize `Q` into batches.
 ```python
 @dataclass
 class VMDataCollatorForSeq2Seq(DataCollatorForSeq2Seq):
@@ -158,8 +158,8 @@ class VMDataCollatorForSeq2Seq(DataCollatorForSeq2Seq):
 ```
 
 # models
-* For training, we did not make any modifications to trl, so we need to pass the logits output by the model through the tanh activation function.
-* To prevent loss NaN, we calculate the sft loss outside the transformer.
+* For training, we did not make any modifications to the package `trl`, so we need to pass the logits output by the model through the tanh activation function.
+* To prevent loss `NaN`, we calculate the SFT loss outside the transformer.
 ```python
 def compute_loss(
         self, model: "PreTrainedModel", inputs: Dict[str, torch.Tensor], return_outputs: bool = False
@@ -218,5 +218,4 @@ training_args.remove_unused_columns = False
 * We limit the maximum length of training sequences to 1024.
 * We did not try smaller epochs because we wanted to make the learning rate decrease more smoothly.
 
-
-Feel free for any further questions.
+Please feel free to ask if you have any further questions.
