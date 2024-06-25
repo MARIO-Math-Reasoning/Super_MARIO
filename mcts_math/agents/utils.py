@@ -142,12 +142,12 @@ def react_sft_step_result_unwrap(
         return text, parser_result
 
     elif includes_answer:
-        answer_regex = r'Final Answer:[\s]*(.*)</p>'
+        answer_regex = r'{faa}[\s]*(.*)</p>'.format(faa=final_answer_action)
         answer_match = re.search(answer_regex, text, re.DOTALL)
         if answer_match:
             parser_result["final_answer"] = answer_match.group(1).strip()
         else:
-            parser_result["final_answer"] = text.split("Final Answer:")[-1].strip()
+            parser_result["final_answer"] = text.split(final_answer_action)[-1].strip()
         
         parser_result["final_answer"] = remove_single_dollar(parser_result["final_answer"])
         
