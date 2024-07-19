@@ -15,7 +15,7 @@ class PROMPT_REACT:
         self.num_few_shot = config.num_few_shot
         self.load_prompt(config)
 
-        assert self.num_few_shot <= len(self.few_examples), f"{num_few_shot} should less than few_examples."   
+        assert self.num_few_shot <= len(self.few_examples), f"{config.num_few_shot} should be less than few_examples."   
 
     def load_prompt(self, config):
 
