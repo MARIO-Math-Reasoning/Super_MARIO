@@ -116,7 +116,7 @@ def react_sft_step_result_unwrap(
     final_answer_action: str = FINAL_ANSWER_ACTION,
 ) -> Tuple[str, Dict[str, str]]:
     includes_answer = final_answer_action in text
-    regex = r"{code_ltag}[\s]*(.*)[\s]```".format(code_ltag=CODE_LTAG)  # CODE_LTAG  '<code>'
+    regex = r"{code_ltag}[\s]*(.*[\s]```)".format(code_ltag=CODE_LTAG)  # CODE_LTAG  '<code>'
     action_match = re.search(regex, text, re.DOTALL)
 
     parser_result = { 
