@@ -1,5 +1,7 @@
 # Super MARIO: process Supervision without process for MAth Reasoning with code Interpreter Output
 
+<img src="imgs/mcts_example.png">
+
 ## 💥 News 💥
 - **RI Recruitment** If you're interested in a research intern position of mathematical reasoning at Qwen team, please feel free to apply <a href="https://careers-tongyi.alibaba.com/campus/position-detail?lang=zh&positionId=2028312">here</a>. 
 - **[2024.06.15]** Release another work by leveraging MCTS [Step-level Value Preference Optimization for Mathematical Reasoning](https://arxiv.org/abs/2406.10858).
