@@ -9,8 +9,8 @@ step_delim: "\n"
 stop: ["\n</code>", "</code>", "</step>"]
 seed: 42
 need_value_func: True
-n_generate_sample: 5
+step_beam_width: 1      # B1
+n_generate_sample: 5    # B2
 best_of: 5
-step_beam_width: 1
 remove_duplicate: True
 verbose: False

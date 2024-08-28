@@ -9,7 +9,7 @@ step_delim: "\n"
 stop: ["\n</code>", "</code>", "</step>"]
 seed: 1234
 need_value_func: False  # greedy decoding without value func
-n_generate_sample: 1
+step_beam_width: 1      # B1
+n_generate_sample: 1    # B2
 best_of: 1
-step_beam_width: 1
 verbose: False

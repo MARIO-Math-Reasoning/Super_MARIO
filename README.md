@@ -57,6 +57,21 @@ pip install -r requirements.txt
 2. Install the [evaluation toolkit](https://github.com/MARIO-Math-Reasoning/MARIO_EVAL?tab=readme-ov-file#install-as-python-package) as a package.
 3. Install our customized [vllm](https://github.com/MARIO-Math-Reasoning/vllm) to support value model.
 
+Or simply follow the cmds
+```bash
+> git clone https://github.com/MARIO-Math-Reasoning/Super_MARIO.git
+> git clone https://github.com/MARIO-Math-Reasoning/MARIO_EVAL.git
+> git clone https://github.com/MARIO-Math-Reasoning/vllm.git
+
+> cd Super_MARIO && pip install -r requirements.txt && cd ..
+
+> cd MARIO_EVAL/latex2sympy && pip install . && cd ..
+> pip install -e .
+
+> cd ../vllm
+> pip install -e .
+```
+
 
 ## Checkpoint Initialization
 1. Download the [deepseek-math-7b-base](https://huggingface.co/deepseek-ai/deepseek-math-7b-base).
