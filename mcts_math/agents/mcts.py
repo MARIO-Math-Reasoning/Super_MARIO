@@ -236,6 +236,7 @@ class MCTS(SBSREACT):
             # expand n_generate_sample nodes
             value_estimate = output.value_estimate
             if value_estimate is not None:  # input exceeds 4096, output '' and None
+                current_node.value = value_estimate
                 self.expand_node(output.outputs, current_node)
             else:
                 value_estimate = self.config.negative_reward
