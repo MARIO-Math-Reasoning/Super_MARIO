@@ -168,40 +168,52 @@ On test set, the ground truth is unknown, so the Q-value distribution includes b
 ## Citation
 SVPO by MCTS
 ```
-@article{chen2024step,
-  title={Step-level Value Preference Optimization for Mathematical Reasoning},
-  author={Chen, Guoxin and Liao, Minpeng and Li, Chengxi and Fan, Kai},
-  journal={arXiv preprint arXiv:2406.10858},
-  year={2024}
+@misc{chen2024steplevelvaluepreferenceoptimization,
+      title={Step-level Value Preference Optimization for Mathematical Reasoning}, 
+      author={Guoxin Chen and Minpeng Liao and Chengxi Li and Kai Fan},
+      year={2024},
+      eprint={2406.10858},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2406.10858}, 
 }
 ```
 
 MCTS version
 ```
-@article{chen2024alphamath,
-  title={AlphaMath Almost Zero: process Supervision without process},
-  author={Chen, Guoxin and Liao, Minpeng and Li, Chengxi and Fan, Kai},
-  journal={arXiv preprint arXiv:2405.03553},
-  year={2024}
+@misc{chen2024alphamathzeroprocesssupervision,
+      title={AlphaMath Almost Zero: process Supervision without process}, 
+      author={Guoxin Chen and Minpeng Liao and Chengxi Li and Kai Fan},
+      year={2024},
+      eprint={2405.03553},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2405.03553}, 
 }
 ```
 
 Evaluation toolkit
 ```
-@article{zhang2024mario,
-  title={MARIO Eval: Evaluate Your Math LLM with your Math LLM--A mathematical dataset evaluation toolkit},
-  author={Zhang, Boning and Li, Chengxi and Fan, Kai},
-  journal={arXiv preprint arXiv:2404.13925},
-  year={2024}
+@misc{zhang2024marioevalevaluatemath,
+      title={MARIO Eval: Evaluate Your Math LLM with your Math LLM--A mathematical dataset evaluation toolkit}, 
+      author={Boning Zhang and Chengxi Li and Kai Fan},
+      year={2024},
+      eprint={2404.13925},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2404.13925}, 
 }
 ```
 
 OVM (Outcome Value Model) version
 ```
-@article{liao2024mario,
-  title={MARIO: MAth Reasoning with code Interpreter Output--A Reproducible Pipeline},
-  author={Liao, Minpeng and Luo, Wei and Li, Chengxi and Wu, Jing and Fan, Kai},
-  journal={arXiv preprint arXiv:2401.08190},
-  year={2024}
+@misc{liao2024mariomathreasoningcode,
+      title={MARIO: MAth Reasoning with code Interpreter Output -- A Reproducible Pipeline}, 
+      author={Minpeng Liao and Wei Luo and Chengxi Li and Jing Wu and Kai Fan},
+      year={2024},
+      eprint={2401.08190},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL},
+      url={https://arxiv.org/abs/2401.08190}, 
 }
 ```
