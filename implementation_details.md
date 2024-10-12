@@ -301,6 +301,26 @@ def load_model(
     return model
 ```
 
+
+## Save checkpoint
+We will separately save the `value head` in `value_head.pth` for each checkpoint. 
+```python
+# in workflow.py
+trainer = ValueTrainer(
+        model=model,
+        args=training_args,
+        finetuning_args=finetuning_args,
+        tokenizer=tokenizer,
+        data_collator=data_collator,
+        callbacks=callbacks + [FixValueHeadModelCallback()],  # add `+ [FixValueHeadModelCallback()]`
+        compute_metrics=compute_accuracy if training_args.predict_with_generate else None,
+        **split_dataset(dataset, data_args, training_args),
+    )
+
+# in ./llmtuner/extras/constants.py
+V_HEAD_WEIGHTS_NAME = "value_head.pth"  # separately save the value model in `value_head.pth`
+```
+
 ## Other details
 ```python
 tokenizer.padding_side = "left"
