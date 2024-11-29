@@ -22,6 +22,8 @@ v_head.summary.bias.data.zero_()
 
 # save file
 
+value_model_save_path = osp.join(value_model_save_path, osp.basename(model_name))
+
 config.save_pretrained(value_model_save_path)
 v_head_state_dict = v_head.state_dict()
 v_head_state_dict_with_prefix = {f'v_head.{k}': v for k, v in v_head_state_dict.items()}
