@@ -4,7 +4,7 @@
 
 ## 💥 News 💥
 - **RI Recruitment** If you're interested in a research intern position of mathematical reasoning at Qwen team, please feel free to apply <a href="https://careers-tongyi.alibaba.com/campus/position-detail?lang=zh&positionId=2028312">here</a>. 
-- **[2024.06.15]** Release another work by leveraging MCTS [Step-level Value Preference Optimization for Mathematical Reasoning (EMNLP 2024 Findings)](https://arxiv.org/abs/2406.10858).
+- **[2024.06.15]** Release another work by leveraging MCTS [Step-level Value Preference Optimization for Mathematical Reasoning (EMNLP 2024 Findings)](https://aclanthology.org/2024.findings-emnlp.463/).
 - **[2024.05.06]** Release our work [AlphaMath Almost Zero: process Supervision without process (NeurIPS 2024)](https://arxiv.org/abs/2405.03553).
 - **[2023.04.22]** Release our math evaluation toolkit [github](https://github.com/MARIO-Math-Reasoning/MARIO_EVAL) and related [report](https://arxiv.org/abs/2404.13925).
 - **[2024.01.16]** Release our work [MARIO (ACL 2024 Findings)](https://arxiv.org/abs/2401.08190).
@@ -15,7 +15,10 @@ This is the official repository for paper [AlphaMath Almost Zero: process Superv
 - [x] [Step Beam](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#step-level-beam-search)
 - [x] [MCTS](https://github.com/MARIO-Math-Reasoning/Super_MARIO?tab=readme-ov-file#mcts)
 
-**Checkpoint**: [AlphaMath-7B round 3 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B) / [AlphaMath-7B round 3 🤖](https://www.modelscope.cn/models/iic/AlphaMath-7B)
+**Checkpoint**: 
+* [AlphaMath-7B round 3 🤗](https://huggingface.co/MARIO-Math-Reasoning/AlaphaMath-7B) / [AlphaMath-7B round 3 🤖](https://www.modelscope.cn/models/iic/AlphaMath-7B)
+
+* [SVPO-7B 🤗](https://huggingface.co/MARIO-Math-Reasoning/SVPO_7B) / [SVPO-7B 🤖](https://www.modelscope.cn/models/iic/SVPO_7B)
 
 **Dataset**: [AlphaMath-Round3-Trainset 🤗](https://huggingface.co/datasets/MARIO-Math-Reasoning/AlphaMath-Trainset) The solution process of the training data is automatically generated based on MCTS and checkpoint in round 2. Both positive and negative examples are included for training the policy and value models.
 
@@ -168,14 +171,23 @@ On test set, the ground truth is unknown, so the Q-value distribution includes b
 ## Citation
 SVPO by MCTS
 ```
-@misc{chen2024steplevelvaluepreferenceoptimization,
-      title={Step-level Value Preference Optimization for Mathematical Reasoning}, 
-      author={Guoxin Chen and Minpeng Liao and Chengxi Li and Kai Fan},
-      year={2024},
-      eprint={2406.10858},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2406.10858}, 
+@inproceedings{chen-etal-2024-step,
+    title = "Step-level Value Preference Optimization for Mathematical Reasoning",
+    author = "Chen, Guoxin  and
+      Liao, Minpeng  and
+      Li, Chengxi  and
+      Fan, Kai",
+    editor = "Al-Onaizan, Yaser  and
+      Bansal, Mohit  and
+      Chen, Yun-Nung",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2024",
+    month = nov,
+    year = "2024",
+    address = "Miami, Florida, USA",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.findings-emnlp.463",
+    doi = "10.18653/v1/2024.findings-emnlp.463",
+    pages = "7889--7903",
 }
 ```
 
