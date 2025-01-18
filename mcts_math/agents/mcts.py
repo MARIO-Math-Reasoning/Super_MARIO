@@ -66,7 +66,8 @@ class MCTS(SBSREACT):
 
     def selection(self) -> Optional[Type[MCTSNode]]:
         node = self.root
-        while node.has_children() or node.is_terminal:
+        # while node.has_children() or node.is_terminal:     # for some purpose, but i forget it.
+        while node.has_children() and not node.is_terminal:  # for mcts, it should be like this
             next_node = self.select_child(node)     # To encourage exploration, select from non-terminal children
             if next_node is None:                   # if None，it mean all children are terminal
                 node.is_terminal = True
