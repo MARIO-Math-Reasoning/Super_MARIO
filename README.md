@@ -1,6 +1,8 @@
 # Super MARIO: process Supervision without process for MAth Reasoning with code Interpreter Output
 
-<img src="imgs/mcts_example.png">
+<p align="center">
+  <img src="imgs/mcts_example.png" width="70%">
+</p>
 
 ## 💥 News 💥
 - **RI Recruitment** If you're interested in a research intern position of mathematical reasoning at Qwen team, please feel free to apply <a href="https://careers-tongyi.alibaba.com/campus/position-detail?lang=zh&positionId=2028312">here</a>. 
@@ -193,14 +195,16 @@ SVPO by MCTS
 
 MCTS version
 ```
-@misc{chen2024alphamathzeroprocesssupervision,
-      title={AlphaMath Almost Zero: process Supervision without process}, 
-      author={Guoxin Chen and Minpeng Liao and Chengxi Li and Kai Fan},
-      year={2024},
-      eprint={2405.03553},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL},
-      url={https://arxiv.org/abs/2405.03553}, 
+@inproceedings{alphamath,
+      author = {Chen, Guoxin and Liao, Minpeng and Li, Chengxi and Fan, Kai},
+      booktitle = {Advances in Neural Information Processing Systems},
+      editor = {A. Globerson and L. Mackey and D. Belgrave and A. Fan and U. Paquet and J. Tomczak and C. Zhang},
+      pages = {27689--27724},
+      publisher = {Curran Associates, Inc.},
+      title = {AlphaMath Almost Zero: Process Supervision without Process},
+      url = {https://proceedings.neurips.cc/paper_files/paper/2024/file/30dfe47a3ccbee68cffa0c19ccb1bc00-Paper-Conference.pdf},
+      volume = {37},
+      year = {2024}
 }
 ```
 
