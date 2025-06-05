@@ -5,7 +5,7 @@
 </p>
 
 ## 💥 News 💥
-- **RI Recruitment** If you're interested in a research intern position of mathematical reasoning at Qwen team, please feel free to apply <a href="https://careers-tongyi.alibaba.com/campus/position-detail?lang=zh&positionId=2028312">here</a>. 
+- **RI Recruitment** If you're interested in a research intern position of mathematical reasoning at Qwen team, please feel free to apply <a href="https://careers-tongyi.alibaba.com/campus/position-detail?lang=zh&positionId=59900003328">here</a>. 
 - **[2024.06.15]** Release another work by leveraging MCTS [Step-level Value Preference Optimization for Mathematical Reasoning (EMNLP 2024 Findings)](https://aclanthology.org/2024.findings-emnlp.463/).
 - **[2024.05.06]** Release our work [AlphaMath Almost Zero: process Supervision without process (NeurIPS 2024)](https://arxiv.org/abs/2405.03553).
 - **[2023.04.22]** Release our math evaluation toolkit [github](https://github.com/MARIO-Math-Reasoning/MARIO_EVAL) and related [report](https://arxiv.org/abs/2404.13925).
